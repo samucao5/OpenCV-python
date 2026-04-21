@@ -1,0 +1,71 @@
+Histogramas Em Uma Imagem Em Tons De Cinza
+
+Pixels apenas variando entre 0 e 256.
+
+Uso da biblioteca Matplotlib.
+
+Função hist.
+
+Função HIST(img, Num1, Intervalo)
+
+Entrada: img = Imagem com a qual queremos trabalhar.
+	 Num1 = Número de elementos distintos que podem ser representados 
+	 Intervalo = Intervalo entre os elementos.
+
+	Saida: Gráfico representando o histograma da imagem.
+
+
+
+Histogramas da imagem
+
+Importando as bibliotecas
+import cv2 as cv
+import numpy as np
+from matplotlib import pyplot as plt
+%matplotlib inline
+
+Leitura da imagem
+img = cv.imread("Cinza.jpg")
+
+Mostrar a imagem
+plt.imshow(img)
+
+Função ravel
+Função RAVEL(array)
+Entrada: 1. 
+img = Matriz de entrada no caso a imagem. Os elementos em um são lidos em ordem especificada por ordem e empacotados como uma matriz 1 -D.
+
+plt.hist(img.ravel(), 256, [0,256])
+plt.show();
+
+histograma de imagem coloridas
+
+importando as bibliotecas
+import cv2 as cv
+import numpy as np
+from matplotlib import pyplot as plt
+%matplotlib inline
+
+Leitura da imagem e segmentação dos canais da imagem (RGB)
+img = cv.imread("colorida.jpg)
+azul, verde, vermelho = cv.split(img)
+
+Monstrar a imagem
+plt.imshow(img)
+
+Histograma da imagem 
+fig = plt.figure(figsize = (20,5))
+axl = fig.add_subplot(131)
+axl.hist(azul.ravel(), 256, [0,256])
+plt.title("Histograma do canal azul")
+
+axl_2 = fig.add_subplot(132)
+axl_2.hist(verde.ravel(),256, [0,256])
+plt.title("Histograma do canal verde")
+
+axl_3 = fig.add_subplot(133)
+axl_3.hist(vermelho.ravel(), 256, [0,256])
+plt.title("Histograma do canal vermelho")
+
+mostrar o histograma 
+plt.show();
